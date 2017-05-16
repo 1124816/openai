@@ -14,7 +14,7 @@ env = gym.make('CartPole-v0')
 env.reset()
 goal_steps = 500
 score_requirement = 90
-initial_games = 5000
+initial_games = 50000
 
 def some_random_games_first():
     for episode in range(5):
@@ -101,7 +101,7 @@ def train_model(training_data, model=False):
         print(len(X[0]))
         model = neural_network_model(input_size = len(X[0]))
 
-    model.fit(X, y, epochs=70, batch_size=32)
+    model.fit(X, y, epochs=40, batch_size=32)
     print(model.evaluate(X, y, verbose=1, batch_size=32))
     return model
 model = train_model(initial_population())
